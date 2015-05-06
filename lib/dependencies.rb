@@ -1,0 +1,6 @@
+require_relative 'person.rb'
+require_relative 'employer.rb'
+require_relative 'job_seeker.rb'
+require_relative 'jobs.rb'
+require_relative 'title.rb'
+require_relative 'job.rb'
