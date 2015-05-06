@@ -1,7 +1,7 @@
 class JobApplication
   @@job_applications = JobApplications.new
 
-  attr_accessor :applier
+  attr_accessor :applier, :application_details
 
   def initialize(applicant, job, date, resume = nil)
     @applier = Applier.new(applicant, resume)

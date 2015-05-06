@@ -76,7 +76,29 @@ describe "apply to a job" do
   it "allows user to apply to jobs with different resume" do
     expect(matts_jobs).to include(apply3)
   end
+end
+
+describe "employers see jobseekers list" do
+  matt = JobSeeker.new("Matt")
+  mary = JobSeeker.new("Mary")
+  bob = Employer.new("Bob")
+  job = bob.post_job("Account Manager", true)
+  job2 = bob.post_job("Sales Manager")
+  matt_resume = Resume.new(matt)
+  mary_resume = Resume.new(mary)
+  apply1 = matt.apply(job, matt_resume)
+  apply2 = matt.apply(job2)
+  apply3 = mary.apply(job, mary_resume)
 
 
-
+  it "allows employer to see all jobseekers who applied to a job" do
+    expect(bob.job_search(job)).to include(matt, mary)
+  end
+  it "allows employer to see all jobseekers who applied on a date" do
+    expect(bob.date_search(Date.today)).to include(matt, mary)
+  end
+  it "allows employer to see all jobseekers who applied to a job on a date" do
+    expect(bob.date_and_job_search(Date.today, job2)).to include(matt)
+    expect(bob.date_and_job_search(Date.today, job2)).not_to include(mary)
+  end
 end
