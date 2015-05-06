@@ -3,8 +3,8 @@ class Employer < Person
     super(name)
   end
 
-  def post_job(title)
-    Job.new(title, self)
+  def post_job(title, resume = false)
+    Job.new(title, self, resume)
   end
 
   def my_jobs
