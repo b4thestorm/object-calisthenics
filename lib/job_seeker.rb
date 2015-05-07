@@ -15,15 +15,17 @@ class JobSeeker < Person
 
   def apply(job, resume = nil)
     if !resume && job.needs_resume?
+      #job.job_fail
       raise "resume needed for this job"
       return
     end
 
     if resume && !my_resumes.include?(resume)
+      #job.job_fail
       raise "cannot use another users resume"
       return
     end
-
+    #job.job_success
     application = JobApplication.new(self, job, Date.today, resume)
 
   end

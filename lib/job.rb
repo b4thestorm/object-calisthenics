@@ -16,4 +16,5 @@ class Job
   def needs_resume?
     !!@job_info.type
   end
+  
 end

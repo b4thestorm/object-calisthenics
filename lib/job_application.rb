@@ -12,4 +12,8 @@ class JobApplication
   def self.all_applications
     @@job_applications.all
   end
+
+  def self.all_applications_on_date(date)
+    self.all_applications.select { |application| application.application_details.date == date }
+  end
 end
