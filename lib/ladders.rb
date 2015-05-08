@@ -8,12 +8,7 @@ class TheLadders
 
   def csv_report(date)
     report_info = build_report_hash(date)
-    report_info = report_info.collect
-    CSV.open("report.csv", "w") do |csv|
-      csv << report_info.keys
-      csv << ["another", "row"]
-      #work in progress
-    end
+    
   end
 
   def html_report(date)

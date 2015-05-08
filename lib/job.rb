@@ -9,6 +9,10 @@ class Job
     @@jobs.all << self
   end
 
+  def is_owned?(employer)
+    @owner == employer
+  end
+
   def self.all_jobs
     @@jobs.all
   end
@@ -16,5 +20,5 @@ class Job
   def needs_resume?
     !!@job_info.type
   end
-  
+
 end

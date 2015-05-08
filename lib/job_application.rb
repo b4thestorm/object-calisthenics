@@ -14,6 +14,26 @@ class JobApplication
   end
 
   def self.all_applications_on_date(date)
-    self.all_applications.select { |application| application.application_details.date == date }
+    self.all_applications.select { |application| application.is_date?(date) }
+  end
+
+  def applicant?(jobseeker)
+    @applier.applicant?(jobseeker)
+  end
+
+  def is_owner?(owner)
+    @application_details.is_owner?(owner)
+  end
+
+  def is_date?(date)
+    @application_details.is_date?(date)
+  end
+
+  def is_job?(job)
+    @application_details.is_job?(job)
+  end
+
+  def applicant
+    @applier.return_applicant
   end
 end
