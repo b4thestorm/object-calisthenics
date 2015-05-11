@@ -8,4 +8,8 @@ class Person
   def print_name
     @name.print_self
   end
+
+  def display
+    @name.print_self
+  end
 end

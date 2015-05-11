@@ -37,4 +37,10 @@ class Job
     @job_info.increase("fails")
   end
 
+  def display
+    print_title
+    print ", "
+    print_owner_name
+  end
+
 end

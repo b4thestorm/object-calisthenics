@@ -19,13 +19,7 @@ class Csv
   end
 
   def print_line(app)
-    app.print_jobseeker_name
-    print ","
-    app.print_job_name
-    print ","
-    app.print_employer_name
-    print ","
-    app.print_date
+    app.print_info
     print "\n"
   end
 end

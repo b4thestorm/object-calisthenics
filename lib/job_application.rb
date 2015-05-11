@@ -1,8 +1,6 @@
 class JobApplication
   @@job_applications = JobApplications.new
 
-  attr_accessor :applier, :application_details
-
   def initialize(applicant, job, date, resume = nil)
     @applier = Applier.new(applicant, resume)
     @application_details = ApplicationDetails.new(job, date)
@@ -37,19 +35,13 @@ class JobApplication
     @applier.return_applicant
   end
 
-  def print_jobseeker_name
+  def print_info
     @applier.print_jobseeker_name
-  end
-
-  def print_job_name
+    print ","
     @application_details.print_job_name
-  end
-
-  def print_employer_name
+    print ","
     @application_details.print_employer_name
-  end
-
-  def print_date
+    print ","
     @application_details.print_date
   end
 end
