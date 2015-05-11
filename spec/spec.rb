@@ -30,6 +30,8 @@ describe "TheLadders" do
     @matts_jobs = @matt.applied_jobs
     @sarahs_jobs = @sarah.applied_jobs
     @apply4 = @sarah.apply(@job, @sarah_resume)
+    @ladders = TheLadders.new
+    @ladders.csv_report(Date.today)
   end
 
   describe "post a job" do

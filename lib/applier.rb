@@ -13,4 +13,8 @@ class Applier
   def return_applicant
     @applicant
   end
+
+  def print_jobseeker_name
+    @applicant.print_name
+  end
 end

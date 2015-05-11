@@ -36,4 +36,20 @@ class JobApplication
   def applicant
     @applier.return_applicant
   end
+
+  def print_jobseeker_name
+    @applier.print_jobseeker_name
+  end
+
+  def print_job_name
+    @application_details.print_job_name
+  end
+
+  def print_employer_name
+    @application_details.print_employer_name
+  end
+
+  def print_date
+    @application_details.print_date
+  end
 end

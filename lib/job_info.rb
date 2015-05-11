@@ -7,4 +7,8 @@ class JobInfo
     @type = type
   end
 
+  def print_title
+    @title.print_self
+  end
+
 end

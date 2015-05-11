@@ -1,4 +1,3 @@
-require 'csv'
 require 'json'
 
 class TheLadders
@@ -7,8 +6,9 @@ class TheLadders
   end
 
   def csv_report(date)
-    report_info = build_report_hash(date)
-    
+    apps = applications = JobApplication.all_applications_on_date(date)
+    printer = Csv.new(apps)
+    printer.print_csv
   end
 
   def html_report(date)

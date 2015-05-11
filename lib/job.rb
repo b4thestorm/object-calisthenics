@@ -21,4 +21,12 @@ class Job
     !!@job_info.type
   end
 
+  def print_owner_name
+    @owner.print_name
+  end
+
+  def print_title
+    @job_info.print_title
+  end
+
 end
