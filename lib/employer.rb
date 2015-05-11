@@ -15,18 +15,22 @@ class Employer < Person
     JobApplication.all_applications.select { |app| app.is_owner?(self) }
   end
 
+  def return_applicants_of_applications(applications)
+    applications.map {|app| app.applicant }
+  end
+
   def date_search(date)
     applications = my_applied_jobs.select { |app| app.is_date?(date) }
-    applications.map {|app| app.applicant }
+    return_applicants_of_applications(applications)
   end
 
   def job_search(job)
     applications = my_applied_jobs.select { |app| app.is_job?(job) }
-    applications.map {|app| app.applicant }
+    return_applicants_of_applications(applications)
   end
 
   def date_and_job_search(date, job)
      applications = my_applied_jobs.select { |app| app.is_date?(date) && app.is_job?(job) }
-     applications.map {|app| app.applicant }
+     return_applicants_of_applications(applications)
   end
 end

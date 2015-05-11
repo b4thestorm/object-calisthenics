@@ -9,6 +9,7 @@ describe "TheLadders" do
     @title2 = Title.new("Sales Manager")
     @title3 = Title.new("CEO")
     @bob = Employer.new(@name)
+    @bob2 = Employer.new(@name)
     @mary = Employer.new(@name2)
     @job = @bob.post_job(@title)
     @job2 = @bob.post_job(@title2)
@@ -17,6 +18,7 @@ describe "TheLadders" do
     @bobs_jobs = @bob.my_jobs
     @name3 = Name.new("Matt")
     @matt = JobSeeker.new(@name3)
+    @matt2 = JobSeeker.new(@name3)
     @matt.save_job(@job)
     @name4 = Name.new("Sarah")
     @sarah = JobSeeker.new(@name4)
@@ -36,7 +38,7 @@ describe "TheLadders" do
 
   describe "post a job" do
     it "creates a new job" do
-      expect(@job.job_info.title).to eq(@title)
+      expect(@job.essence.title).to eq(@title)
       expect(@job.is_owned?(@bob)).to be_truthy
     end
     it "adds the job to the jobs list" do
@@ -87,6 +89,18 @@ describe "TheLadders" do
     it "allows employer to see all jobseekers who applied to a job on a date" do
       expect(@bob.date_and_job_search(Date.today, @job2)).to include(@matt)
       expect(@bob.date_and_job_search(Date.today, @job2)).not_to include(@sarah)
+    end
+  end
+
+  describe "can handle entities with the same name/title" do
+    it "allows two jobs to have the same title" do
+      expect(@job2).not_to eql(@job4)
+    end
+    it "allows two jobseekers to have the same title" do
+      expect(@matt).not_to eql(@matt2)
+    end
+    it "allows two employers to have the same title" do
+      expect(@bob).not_to eql(@bob2)
     end
   end
 end

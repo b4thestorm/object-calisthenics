@@ -1,14 +1,18 @@
 class JobInfo
 
-  attr_accessor :title, :type
+  attr_accessor :counts, :type
 
-  def initialize(title, type = nil)
-    @title = title
+  def initialize(type = nil)
+    @counts = Counts.new
     @type = type
   end
 
-  def print_title
-    @title.print_self
+  def increase(type)
+    @counts.increase(type)
+  end
+
+  def needs_resume?
+    !!@type
   end
 
 end
