@@ -1,6 +1,13 @@
 class Employer < Person
+  @@all_employers = Employers.new
+
   def initialize(name)
     super(name)
+    @@all_employers.all << self
+  end
+
+  def self.all_employers
+    @@all_employers
   end
 
   def post_job(title, resume = false)
@@ -32,5 +39,21 @@ class Employer < Person
   def date_and_job_search(date, job)
      applications = my_applied_jobs.select { |app| app.is_date?(date) && app.is_job?(job) }
      return_applicants_of_applications(applications)
+  end
+
+  def add_successes
+    successes = Count.new
+    my_jobs.each do |job|
+      successes.add(job.successes)
+    end
+    successes
+  end
+
+  def add_fails
+    fails = Count.new
+    my_jobs.each do |job|
+      fails.add(job.fails)
+    end
+    fails
   end
 end

@@ -6,7 +6,7 @@ class TheLadders
   end
 
   def csv_report(date)
-    apps = applications = JobApplication.all_applications_on_date(date)
+    apps = JobApplication.all_applications_on_date(date)
     printer = Csv.new(apps)
     printer.print_csv
   end
@@ -14,6 +14,11 @@ class TheLadders
   def html_report(date)
     report_info = build_report_hash(date)
     report_info.to_json
+  end
+
+  def job_success_report
+    report = JobReport.new
+    report.print_report
   end
 
   def build_report_hash(date)

@@ -13,6 +13,14 @@ class Job
     @essence.is_owned?(employer)
   end
 
+  def is_title?(title)
+    @essence.is_title?(title)
+  end
+
+  def self.jobs
+    @@jobs
+  end
+
   def self.all_jobs
     @@jobs.all
   end
@@ -29,12 +37,24 @@ class Job
     @essence.print_title
   end
 
+  def print_counts
+    @job_info.print_counts
+  end
+
   def job_success
-    @job_info.increase("successes")
+    @job_info.increase_successes
   end
 
   def job_fail
-    @job_info.increase("fails")
+    @job_info.increase_fails
+  end
+
+  def successes
+    @job_info.successes
+  end
+
+  def fails
+    @job_info.fails
   end
 
   def display

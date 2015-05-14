@@ -1,6 +1,6 @@
 class Csv
   def initialize(applications)
-    @applications = applications
+    @applications = JobApplications.new(applications)
   end
 
   def print_csv
@@ -13,13 +13,6 @@ class Csv
   end
 
   def print_values
-    @applications.each do |app|
-      print_line(app)
-    end
-  end
-
-  def print_line(app)
-    app.print_info
-    print "\n"
+    @applications.print_all
   end
 end

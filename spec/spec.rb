@@ -34,11 +34,12 @@ describe "TheLadders" do
     @apply4 = @sarah.apply(@job, @sarah_resume)
     @ladders = TheLadders.new
     @ladders.csv_report(Date.today)
+    @ladders.job_success_report
   end
 
   describe "post a job" do
     it "creates a new job" do
-      expect(@job.essence.title).to eq(@title)
+      expect(@job.is_title?(@title)).to be_truthy
       expect(@job.is_owned?(@bob)).to be_truthy
     end
     it "adds the job to the jobs list" do
@@ -65,13 +66,13 @@ describe "TheLadders" do
     it "allows user to apply to JReq with resume" do
       expect(@matts_jobs).to include(@apply1)
     end
-    it "doesn't allows user to apply to JReq without resume" do
+    it "doesn't allow user to apply to JReq without resume" do
       expect { @matt.apply(@job4) }.to raise_error
     end
     it "allows user to apply to AST without resume" do
       expect(@matts_jobs).to include(@apply2)
     end
-    it "doesn't allows user to apply with another's resume" do
+    it "doesn't allow user to apply with another's resume" do
       expect { @matt.apply(@job4, @sarah_resume) }.to raise_error
     end
     it "allows user to apply to jobs with different resume" do

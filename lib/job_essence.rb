@@ -10,6 +10,10 @@ class JobEssence
     @owner == employer
   end
 
+  def is_title?(title)
+    @title == title
+  end
+
   def print_owner
     @owner.print_name
   end

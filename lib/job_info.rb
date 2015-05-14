@@ -7,12 +7,28 @@ class JobInfo
     @type = type
   end
 
-  def increase(type)
-    @counts.increase(type)
+  def increase_successes
+    @counts.increase_successes
+  end
+
+  def increase_fails
+    @counts.increase_fails
   end
 
   def needs_resume?
     !!@type
+  end
+
+  def print_counts
+    @counts.print_counts
+  end
+
+  def successes
+    @counts.successes
+  end
+
+  def fails
+    @counts.fails
   end
 
 end
