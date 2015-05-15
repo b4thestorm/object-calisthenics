@@ -1,5 +1,4 @@
 class Counts
-  attr_accessor :successes, :fails
 
   def initialize
     @successes = Count.new

@@ -22,16 +22,8 @@ class JobSeeker < Person
   end
 
   def apply(job, resume = nil)
-    if !resume && job.needs_resume?
-      job.job_fail
-      raise "resume needed for this job"
-    end
-    if resume && !resume.is_owner?(self)
-      job.job_fail
-      raise "cannot use another users resume"
-    end
-    job.job_success
-    application = JobApplication.new(self, job, Date.today, resume)
+    job_apply_tool = JobApplyTool.new
+    job_apply_tool.apply_to_job(job, self, resume)
   end
 
   def applied_jobs

@@ -33,8 +33,6 @@ describe "TheLadders" do
     @sarahs_jobs = @sarah.applied_jobs
     @apply4 = @sarah.apply(@job, @sarah_resume)
     @ladders = TheLadders.new
-    @ladders.csv_report(Date.today)
-    @ladders.job_success_report
   end
 
   describe "post a job" do
@@ -102,6 +100,15 @@ describe "TheLadders" do
     end
     it "allows two employers to have the same title" do
       expect(@bob).not_to eql(@bob2)
+    end
+  end
+
+  describe "prints out reports" do
+    it "prints csv report" do
+      @ladders.csv_report(Date.today)
+    end
+    it "prints success report" do
+      @ladders.job_success_report
     end
   end
 end
