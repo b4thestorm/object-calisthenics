@@ -2,7 +2,7 @@ class JobseekerItems
   attr_accessor :jobs
 
   def initialize
-    @jobs = []
+    @jobs = Jobs.new
     @resumes = []
   end
 
@@ -11,7 +11,7 @@ class JobseekerItems
   end
 
   def add_job(job)
-    @jobs << job
+    @jobs.add(job)
   end
 
   def add_resume(resume)

@@ -12,5 +12,13 @@ class Jobs
       print "\n"
     end
   end
-  
+
+  def include?(job)
+    @all.include?(job)
+  end
+
+  def add(job)
+    @all << job
+  end
+
 end
