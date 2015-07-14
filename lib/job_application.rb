@@ -1,18 +1,9 @@
 class JobApplication
-  @@job_applications = JobApplications.new
 
   def initialize(applicant, job, date, resume = nil)
     @applier = Applier.new(applicant, resume)
     @application_details = ApplicationDetails.new(job, date)
-    @@job_applications.all << self
-  end
-
-  def self.all_applications
-    @@job_applications.all
-  end
-
-  def self.all_applications_on_date(date)
-    self.all_applications.select { |application| application.is_date?(date) }
+    All_Applications.add(self)
   end
 
   def applicant?(jobseeker)

@@ -41,7 +41,7 @@ describe "TheLadders" do
       expect(@job.is_owned?(@bob)).to be_truthy
     end
     it "adds the job to the jobs list" do
-      expect(Job.all_jobs).to include(@job)
+      expect(All_Jobs).to include(@job)
     end
   end
 

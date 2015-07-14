@@ -27,7 +27,7 @@ class JobSeeker < Person
   end
 
   def applied_jobs
-    JobApplication.all_applications.select { |application| application.applicant?(self) }
+    All_Applications.applied_by(self)
   end
 
 end

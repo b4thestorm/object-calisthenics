@@ -21,4 +21,12 @@ class Jobs
     @all << job
   end
 
+  def all
+    @all
+  end
+
+  def jobs_for(employer)
+    @all.select { |job| job.is_owned?(employer) }
+  end
+
 end

@@ -1,10 +1,14 @@
 require_relative 'name.rb'
 require_relative 'person.rb'
+require_relative 'applicant_list_builder.rb'
+Applicant_List_Builder = ApplicantListBuilder.new
 require_relative 'employers.rb'
 require_relative 'employer.rb'
+All_Employers = Employers.new
 require_relative 'applier.rb'
 require_relative 'application_details.rb'
 require_relative 'job_applications.rb'
+All_Applications = JobApplications.new
 require_relative 'job_application.rb'
 require_relative 'jobseeker_items.rb'
 require_relative 'job_apply_tool.rb'
@@ -16,6 +20,7 @@ require_relative 'counts.rb'
 require_relative 'count.rb'
 require_relative 'job_info.rb'
 require_relative 'jobs.rb'
+All_Jobs = Jobs.new
 require_relative 'job.rb'
 require_relative 'job_report.rb'
 require_relative 'csv.rb'

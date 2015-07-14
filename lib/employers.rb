@@ -4,6 +4,10 @@ class Employers
     @all = all
   end
 
+  def add(employer)
+    @all << employer
+  end
+
   def print_employer_success_and_failures
     @all.each do |employer|
       employer.print_name

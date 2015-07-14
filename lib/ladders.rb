@@ -6,7 +6,7 @@ class TheLadders
   end
 
   def csv_report(date)
-    apps = JobApplication.all_applications_on_date(date)
+    apps = All_Applications.all_applications_on_date(date)
     printer = Csv.new(apps)
     printer.print_csv
   end

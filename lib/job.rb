@@ -1,12 +1,11 @@
 class Job
-  @@jobs = Jobs.new
 
   attr_accessor :essence, :job_info
 
   def initialize(title, owner, type = nil)
     @job_info = JobInfo.new(type)
     @essence = JobEssence.new(owner, title)
-    @@jobs.all << self
+    All_Jobs.add(self)
   end
 
   def is_owned?(employer)
@@ -15,14 +14,6 @@ class Job
 
   def is_title?(title)
     @essence.is_title?(title)
-  end
-
-  def self.jobs
-    @@jobs
-  end
-
-  def self.all_jobs
-    @@jobs.all
   end
 
   def needs_resume?
