@@ -9,6 +9,7 @@ require_relative 'applier.rb'
 require_relative 'application_details.rb'
 require_relative 'job_applications.rb'
 All_Applications = JobApplications.new
+require_relative 'application_searcher.rb'
 require_relative 'job_application.rb'
 require_relative 'jobseeker_items.rb'
 require_relative 'job_apply_tool.rb'

@@ -6,8 +6,8 @@ class TheLadders
   end
 
   def csv_report(date)
-    apps = All_Applications.all_applications_on_date(date)
-    printer = Csv.new(apps)
+    applications = All_Applications.on_date(date)
+    printer = Csv.new(applications)
     printer.print_csv
   end
 
@@ -23,7 +23,7 @@ class TheLadders
 
   def build_report_hash(date)
     report_hash = { "Jobseeker" => [], "Job" => [], "Employer" => [], "Date" => [] }
-    applications = JobApplication.all_applications_on_date(date)
+    applications = JobApplication.on_date(date)
     applications.each do |application|
       report_hash["Jobseeker"] << application.applier.applicant.name
       report_hash["Job"] << application.application_details.job.title

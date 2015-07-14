@@ -1,7 +1,5 @@
 class JobInfo
 
-  attr_accessor :counts, :type
-
   def initialize(type = nil)
     @counts = Counts.new
     @type = type

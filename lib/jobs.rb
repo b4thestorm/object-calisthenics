@@ -1,5 +1,5 @@
 class Jobs
-  attr_accessor :all
+
   def initialize(jobs= [])
     @all = jobs
   end

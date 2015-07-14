@@ -1,6 +1,5 @@
 require 'date'
 class JobSeeker < Person
-  attr_accessor :jobseeker_items, :my_resumes
 
   def initialize(name)
     super(name)

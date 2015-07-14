@@ -17,21 +17,6 @@ class Employer < Person
     All_Applications.owned_by(self)
   end
 
-  def date_search(date)
-    applications = my_applied_jobs.select { |app| app.is_date?(date) }
-    Applicant_List_Builder.return_applicants_of_applications(applications)
-  end
-
-  def job_search(job)
-    applications = my_applied_jobs.select { |app| app.is_job?(job) }
-    Applicant_List_Builder.return_applicants_of_applications(applications)
-  end
-
-  def date_and_job_search(date, job)
-     applications = my_applied_jobs.select { |app| app.is_date?(date) && app.is_job?(job) }
-     Applicant_List_Builder.return_applicants_of_applications(applications)
-  end
-
   def add_successes
     successes = Count.new
     my_jobs.each do |job|

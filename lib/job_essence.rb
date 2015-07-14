@@ -1,6 +1,5 @@
 class JobEssence
-  attr_accessor :title
-
+  
   def initialize(owner, title)
     @owner = owner
     @title = title

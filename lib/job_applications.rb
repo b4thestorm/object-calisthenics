@@ -1,5 +1,4 @@
 class JobApplications
-  attr_accessor :all
 
   def initialize(applications = [])
     @all = applications
@@ -9,7 +8,7 @@ class JobApplications
     @all << application
   end
 
-  def all_applications_on_date(date)
+  def on_date(date)
     @all.select { |application| application.is_date?(date) }
   end
 

@@ -1,7 +1,5 @@
 class Job
 
-  attr_accessor :essence, :job_info
-
   def initialize(title, owner, type = nil)
     @job_info = JobInfo.new(type)
     @essence = JobEssence.new(owner, title)

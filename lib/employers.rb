@@ -1,5 +1,5 @@
 class Employers
-  attr_accessor :all
+
   def initialize(all = [])
     @all = all
   end

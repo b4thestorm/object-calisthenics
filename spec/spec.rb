@@ -33,6 +33,7 @@ describe "TheLadders" do
     @sarahs_jobs = @sarah.applied_jobs
     @apply4 = @sarah.apply(@job, @sarah_resume)
     @ladders = TheLadders.new
+    @application_searcher = ApplicationSearcher.new
   end
 
   describe "post a job" do
@@ -80,14 +81,14 @@ describe "TheLadders" do
 
   describe "employers see jobseekers list" do
     it "allows employer to see all jobseekers who applied to a job" do
-      expect(@bob.job_search(@job)).to include(@matt, @sarah)
+      expect(@application_searcher.job_and_employer_search(@bob, @job)).to include(@matt, @sarah)
     end
     it "allows employer to see all jobseekers who applied on a date" do
-      expect(@bob.date_search(Date.today)).to include(@matt, @sarah)
+      expect(@application_searcher.date_and_employer_search(@bob, Date.today)).to include(@matt, @sarah)
     end
     it "allows employer to see all jobseekers who applied to a job on a date" do
-      expect(@bob.date_and_job_search(Date.today, @job2)).to include(@matt)
-      expect(@bob.date_and_job_search(Date.today, @job2)).not_to include(@sarah)
+      expect(@application_searcher.date_and_job_search(@bob, Date.today, @job2)).to include(@matt)
+      expect(@application_searcher.date_and_job_search(@bob, Date.today, @job2)).not_to include(@sarah)
     end
   end
 
